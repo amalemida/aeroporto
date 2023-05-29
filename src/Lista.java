@@ -13,8 +13,7 @@ public class Lista <X>
             this.prox = p;
         }
 
-        public No (X i)
-        {
+        public No (X i) {
             this.info = i;
             this.prox = null;
         }

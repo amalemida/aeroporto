@@ -16,11 +16,11 @@ public class AeroportoApp {
             aeroportos.adicionarAeroporto(bsb);
             aeroportos.adicionarAeroporto(gig);
             aeroportos.adicionarAeroporto(ssa);
-            aeroportos.adicionarAeroporto(gru);    
-        } catch(Exception ex) {
+            aeroportos.adicionarAeroporto(gru);
+        } catch (Exception ex) {
             System.out.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
         }
-        
+
         // Menu
         Scanner scanner = new Scanner(System.in);
         int opcao;
@@ -43,10 +43,10 @@ public class AeroportoApp {
                     String codigoAeroporto = scanner.nextLine();
 
                     try {
-                        Aeroporto novoAeroporto = new Aeroporto(nomeAeroporto, codigoAeroporto);                    
+                        Aeroporto novoAeroporto = new Aeroporto(nomeAeroporto, codigoAeroporto);
                         aeroportos.adicionarAeroporto(novoAeroporto);
                         System.out.println("Aeroporto cadastrado com sucesso!");
-                    } catch(Exception ex) {
+                    } catch (Exception ex) {
                         System.out.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
                     }
                     break;
@@ -61,7 +61,7 @@ public class AeroportoApp {
                     try {
                         aeroportos.cadastrarVoo(numeroVoo, codigoOrigem, codigoDestino);
                         System.out.println("Voo cadastrado com sucesso!");
-                    } catch(Exception ex) {
+                    } catch (Exception ex) {
                         System.out.println("Erro ao cadastrar voo: " + ex.getMessage());
                     }
                     break;
@@ -72,7 +72,7 @@ public class AeroportoApp {
                     try {
                         aeroportos.removerVoo(vooRemover);
                         System.out.println("Voo removido com sucesso!");
-                    } catch(Exception ex) {
+                    } catch (Exception ex) {
                         System.out.println("Erro ao remover voo: " + ex.getMessage());
                     }
                     break;
@@ -94,5 +94,3 @@ public class AeroportoApp {
         scanner.close();
     }
 }
-
-

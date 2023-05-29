@@ -10,7 +10,7 @@ public class Voo {
 
     public Voo(String numeroVoo) {
         this.numeroVoo = numeroVoo;
-    
+
     }
 
     public String getnumeroVoo() {
@@ -50,7 +50,5 @@ public class Voo {
             return false;
         return true;
     }
-    
+
 }
-
-

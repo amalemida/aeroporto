@@ -2,7 +2,7 @@
 class Aeroporto {
     private String nome;
     private String codigo;
-    private Lista<Voo> voos; 
+    private Lista<Voo> voos;
 
     public Aeroporto(String nome, String codigo) {
         this.nome = nome;
@@ -38,7 +38,7 @@ class Aeroporto {
         aeroporto.append("\nNome: " + nome);
         aeroporto.append("\nCodigo: " + codigo);
         aeroporto.append("\nVoos: " + voos.toString());
-        aeroporto.append("\n========================");
+        aeroporto.append("========================");
         return aeroporto.toString();
     }
 }
