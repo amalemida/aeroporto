@@ -1,86 +1,101 @@
-import java.util.Scanner;
-
 public class AeroportoApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Cadastramento dos aeroportos
-        Aeroporto cnf = new Aeroporto("Belo Horizonte", "CNF");
-        Aeroporto bsb = new Aeroporto("Brasília", "BSB");
-        Aeroporto gig = new Aeroporto("Rio de Janeiro", "GIG");
-        Aeroporto ssa = new Aeroporto("Salvador", "SSA");
-        Aeroporto gru = new Aeroporto("São Paulo", "GRU");
+        Aeroporto cnf = new Aeroporto("BELO HORIZONTE", "CNF");
+        Aeroporto bsb = new Aeroporto("BRASÍLIA", "BSB");
+        Aeroporto gig = new Aeroporto("RIO DE JANEIRO", "GIG");
+        Aeroporto ssa = new Aeroporto("SALVADOR", "SSA");
+        Aeroporto gru = new Aeroporto("SÃO PAULO", "GRU");
 
         Aeroportos aeroportos = new Aeroportos(10);
-        try {
-            aeroportos.adicionarAeroporto(cnf);
-            aeroportos.adicionarAeroporto(bsb);
-            aeroportos.adicionarAeroporto(gig);
-            aeroportos.adicionarAeroporto(ssa);
-            aeroportos.adicionarAeroporto(gru);
-        } catch (Exception ex) {
-            System.out.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
-        }
 
-        // Menu
-        Scanner scanner = new Scanner(System.in);
-        int opcao;
+        aeroportos.adicionarAeroporto(cnf);
+        aeroportos.adicionarAeroporto(bsb);
+        aeroportos.adicionarAeroporto(gig);
+        aeroportos.adicionarAeroporto(ssa);
+        aeroportos.adicionarAeroporto(gru);
+
+        aeroportos.cadastrarVoo("107", "BSB", "SSA");
+        aeroportos.cadastrarVoo("214", "CNF", "SSA");
+        aeroportos.cadastrarVoo("555", "CNF", "GIG");
+        aeroportos.cadastrarVoo("101", "CNF", "GRU");
+        aeroportos.cadastrarVoo("554", "GIG", "CNF");
+        aeroportos.cadastrarVoo("090", "GIG", "GRU");
+        aeroportos.cadastrarVoo("050", "GRU", "BSB");
+        aeroportos.cadastrarVoo("089", "GRU", "GIG");
+        aeroportos.cadastrarVoo("102", "GRU", "CNF");
+        aeroportos.cadastrarVoo("215", "SSA", "CNF");
+
+        int opcao = -1;
         do {
-            System.out.println("Selecione uma opção:");
-            System.out.println("1. Cadastrar novo aeroporto");
-            System.out.println("2. Cadastrar voo");
-            System.out.println("3. Remover voo");
-            System.out.println("4. Listar voos de um aeroporto");
-            System.out.println("0. Sair");
+            try {
+                System.out.println("\nSelecione uma opção:");
+                System.out.println("1. Cadastrar novo aeroporto");
+                System.out.println("2. Cadastrar voo");
+                System.out.println("3. Remover voo");
+                System.out.println("4. Listar voos de um aeroporto");
+                System.out.println("0. Sair");
 
-            opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir o newline deixado pelo nextInt()
+                opcao = Teclado.getUmInt();
+
+            } catch (Exception ex) {
+                if (ex.getMessage().equals("Int invalido!")) {
+                    ex.getSuppressed();
+                }
+
+            }
 
             switch (opcao) {
                 case 1:
                     System.out.println("Digite o nome do aeroporto:");
-                    String nomeAeroporto = scanner.nextLine();
+                    String nomeAeroporto = Teclado.getUmString().toUpperCase();
                     System.out.println("Digite o código do aeroporto:");
-                    String codigoAeroporto = scanner.nextLine();
+                    String codigoAeroporto = Teclado.getUmString().toUpperCase();
 
                     try {
                         Aeroporto novoAeroporto = new Aeroporto(nomeAeroporto, codigoAeroporto);
                         aeroportos.adicionarAeroporto(novoAeroporto);
                         System.out.println("Aeroporto cadastrado com sucesso!");
                     } catch (Exception ex) {
-                        System.out.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
+                        System.err.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
                     }
                     break;
                 case 2:
                     System.out.println("Digite o código do aeroporto de origem:");
-                    String codigoOrigem = scanner.nextLine();
+                    String codigoOrigem = Teclado.getUmString().toUpperCase();
                     System.out.println("Digite o código do aeroporto de destino:");
-                    String codigoDestino = scanner.nextLine();
+                    String codigoDestino = Teclado.getUmString().toUpperCase();
                     System.out.println("Digite o número do voo:");
-                    String numeroVoo = scanner.nextLine();
+                    String numeroVoo = Teclado.getUmString().toUpperCase();
 
                     try {
                         aeroportos.cadastrarVoo(numeroVoo, codigoOrigem, codigoDestino);
                         System.out.println("Voo cadastrado com sucesso!");
                     } catch (Exception ex) {
-                        System.out.println("Erro ao cadastrar voo: " + ex.getMessage());
+                        System.err.println("Erro ao cadastrar voo: " + ex.getMessage());
                     }
                     break;
                 case 3:
                     System.out.println("Digite o número do voo a ser removido:");
-                    String vooRemover = scanner.nextLine();
+                    String vooRemover = Teclado.getUmString().toUpperCase();
 
                     try {
                         aeroportos.removerVoo(vooRemover);
                         System.out.println("Voo removido com sucesso!");
                     } catch (Exception ex) {
-                        System.out.println("Erro ao remover voo: " + ex.getMessage());
+                        System.err.println("Erro ao remover voo: " + ex.getMessage());
                     }
                     break;
                 case 4:
                     System.out.println("Digite o código do aeroporto para listar os voos:");
-                    String codigoAeroportoListar = scanner.nextLine();
+                    String codigoAeroportoListar = Teclado.getUmString().toUpperCase();
 
-                    aeroportos.listarVoos(codigoAeroportoListar);
+                    try {
+                        aeroportos.listarVoos(codigoAeroportoListar);
+                    } catch (Exception ex) {
+                        System.err.println(ex.getMessage());
+                    }
                     break;
                 case 0:
                     System.out.println("Encerrando o programa...");
@@ -91,6 +106,5 @@ public class AeroportoApp {
             }
         } while (opcao != 0);
 
-        scanner.close();
     }
 }

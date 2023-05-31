@@ -26,19 +26,13 @@ class Aeroporto {
         return codigo;
     }
 
-    // criar um metodo adicionar Voo
     public void adicionarVoo(Voo voo) throws Exception {
         voos.guardeUmItemNoInicio(voo);
     }
 
     @Override
     public String toString() {
-        StringBuilder aeroporto = new StringBuilder();
-        aeroporto.append("========================");
-        aeroporto.append("\nNome: " + nome);
-        aeroporto.append("\nCodigo: " + codigo);
-        aeroporto.append("\nVoos: " + voos.toString());
-        aeroporto.append("========================");
-        return aeroporto.toString();
+        return "Aeroporto: " + nome + ", código = " + codigo + ", Voos = " + voos;
     }
+
 }

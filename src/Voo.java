@@ -31,7 +31,7 @@ public class Voo {
 
     @Override
     public String toString() {
-        return "{ Número: " + this.numeroVoo + ", Código destino: " + this.destino.getNome() + " }";
+        return "{ Número: " + this.numeroVoo + ", Cidade destino: " + this.destino.getNome() + " }";
     }
 
     @Override
