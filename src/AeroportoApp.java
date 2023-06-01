@@ -71,24 +71,24 @@ public class AeroportoApp {
 
                     try {
                         aeroportos.cadastrarVoo(numeroVoo, codigoOrigem, codigoDestino);
-                        System.out.println("Voo cadastrado com sucesso!");
+                        System.out.println("\nVoo cadastrado com sucesso!");
                     } catch (Exception ex) {
-                        System.err.println("Erro ao cadastrar voo: " + ex.getMessage());
+                        System.err.println("\nErro ao cadastrar voo: " + ex.getMessage());
                     }
                     break;
                 case 3:
-                    System.out.println("Digite o número do voo a ser removido:");
+                    System.out.println("\nDigite o número do voo a ser removido:");
                     String vooRemover = Teclado.getUmString().toUpperCase();
 
                     try {
                         aeroportos.removerVoo(vooRemover);
-                        System.out.println("Voo removido com sucesso!");
+                        System.out.println("\nVoo removido com sucesso!");
                     } catch (Exception ex) {
-                        System.err.println("Erro ao remover voo: " + ex.getMessage());
+                        System.err.println("\nErro ao remover voo: " + ex.getMessage());
                     }
                     break;
                 case 4:
-                    System.out.println("Digite o código do aeroporto para listar os voos:");
+                    System.out.println("\nDigite o código do aeroporto para listar os voos:");
                     String codigoAeroportoListar = Teclado.getUmString().toUpperCase();
 
                     try {
@@ -98,10 +98,10 @@ public class AeroportoApp {
                     }
                     break;
                 case 0:
-                    System.out.println("Encerrando o programa...");
+                    System.out.println("\nO programa foi encerrado.");
                     break;
                 default:
-                    System.out.println("Opção inválida. Digite um número válido.");
+                    System.out.println("\nOpção inválida. Digite um número válido.");
                     break;
             }
         } while (opcao != 0);

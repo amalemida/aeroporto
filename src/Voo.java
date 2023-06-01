@@ -35,6 +35,15 @@ public class Voo {
     }
 
     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((numeroVoo == null) ? 0 : numeroVoo.hashCode());
+        result = prime * result + ((destino == null) ? 0 : destino.hashCode());
+        return result;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -47,6 +56,11 @@ public class Voo {
             if (other.numeroVoo != null)
                 return false;
         } else if (!numeroVoo.equals(other.numeroVoo))
+            return false;
+        if (destino == null) {
+            if (other.destino != null)
+                return false;
+        } else if (!destino.equals(other.destino))
             return false;
         return true;
     }
