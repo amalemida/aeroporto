@@ -1,6 +1,6 @@
 import java.lang.reflect.*;
 
-public class Lista <X>
+public class ListaSimplesOrdenada <X>
 {
     private class No
     {
@@ -41,7 +41,7 @@ public class Lista <X>
 
     private No primeiro, ultimo;
 
-    public Lista ()
+    public ListaSimplesOrdenada ()
     {
         this.primeiro=this.ultimo=null;
     }
@@ -287,8 +287,8 @@ public class Lista <X>
         if (this.getClass()!=obj.getClass())
             return false;
 
-        Lista<X> lista =
-       (Lista<X>)obj;
+        ListaSimplesOrdenada<X> lista =
+       (ListaSimplesOrdenada<X>)obj;
 
         No atualThis =this .primeiro;
         No atualLista=lista.primeiro;
@@ -329,7 +329,7 @@ public class Lista <X>
     }
     
     // construtor de copia
-    public Lista (Lista<X> modelo) throws Exception
+    public ListaSimplesOrdenada (ListaSimplesOrdenada<X> modelo) throws Exception
     {
         if (modelo==null)
             throw new Exception ("Modelo ausente");
@@ -354,11 +354,11 @@ public class Lista <X>
 
     public Object clone ()
     {
-        Lista<X> ret=null;
+        ListaSimplesOrdenada<X> ret=null;
 
         try
         {
-            ret = new Lista (this);
+            ret = new ListaSimplesOrdenada (this);
         }
         catch (Exception erro)
         {} // sei que this NUNCA é null e o contrutor de copia da erro quando seu parametro é null

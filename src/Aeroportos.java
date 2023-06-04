@@ -1,4 +1,3 @@
-
 class Aeroportos {
     private Aeroporto[] aeroportos;
     private int numeroAeroportos = 0;
@@ -60,10 +59,18 @@ class Aeroportos {
             if (aeroporto.getCodigo().equals(codigoAeroporto)) {
                 System.out.println(aeroporto);
                 break;
+            } else {
+                throw new Exception("Aeroporto não encontrado!");
             }
-
         }
-        throw new Exception("Aeroporto não encontrado!");
     }
 
+    @Override
+    public String toString() {
+        String ret = "";
+        for (int i = 0; i < this.numeroAeroportos; i++) {
+            ret += aeroportos[i] + "\n";
+        }
+        return ret;
+    }
 }

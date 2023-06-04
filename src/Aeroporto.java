@@ -2,23 +2,23 @@
 class Aeroporto {
     private String nome;
     private String codigo;
-    private Lista<Voo> voos;
+    private ListaSimplesOrdenada<Voo> voos;
 
     public Aeroporto(String nome, String codigo) {
         this.nome = nome;
         this.codigo = codigo;
-        this.voos = new Lista<Voo>();
+        this.voos = new ListaSimplesOrdenada<Voo>();
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Lista<Voo> getVoos() {
+    public ListaSimplesOrdenada<Voo> getVoos() {
         return voos;
     }
 
-    public void setVoos(Lista<Voo> voos) {
+    public void setVoos(ListaSimplesOrdenada<Voo> voos) {
         this.voos = voos;
     }
 
