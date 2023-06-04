@@ -26,7 +26,7 @@ class Aeroporto {
         return codigo;
     }
 
-    public void adicionarVoo(Voo voo) throws Exception {
+    public void adicioneVoo(Voo voo) throws Exception {
         voos.guardeUmItemNoInicio(voo);
     }
 

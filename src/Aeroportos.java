@@ -37,7 +37,7 @@ class Aeroportos {
         }
 
         Voo voo = new Voo(numeroVoo, destino);
-        origem.adicionarVoo(voo);
+        origem.adicioneVoo(voo);
     }
 
     public void removaVoo(String numeroVoo) throws Exception {
