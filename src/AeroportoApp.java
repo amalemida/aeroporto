@@ -10,22 +10,22 @@ public class AeroportoApp {
 
         Aeroportos aeroportos = new Aeroportos(10);
 
-        aeroportos.adicionarAeroporto(cnf);
-        aeroportos.adicionarAeroporto(bsb);
-        aeroportos.adicionarAeroporto(gig);
-        aeroportos.adicionarAeroporto(ssa);
-        aeroportos.adicionarAeroporto(gru);
+        aeroportos.adicioneAeroporto(cnf);
+        aeroportos.adicioneAeroporto(bsb);
+        aeroportos.adicioneAeroporto(gig);
+        aeroportos.adicioneAeroporto(ssa);
+        aeroportos.adicioneAeroporto(gru);
 
-        aeroportos.cadastrarVoo("107", "BSB", "SSA");
-        aeroportos.cadastrarVoo("214", "CNF", "SSA");
-        aeroportos.cadastrarVoo("555", "CNF", "GIG");
-        aeroportos.cadastrarVoo("101", "CNF", "GRU");
-        aeroportos.cadastrarVoo("554", "GIG", "CNF");
-        aeroportos.cadastrarVoo("090", "GIG", "GRU");
-        aeroportos.cadastrarVoo("050", "GRU", "BSB");
-        aeroportos.cadastrarVoo("089", "GRU", "GIG");
-        aeroportos.cadastrarVoo("102", "GRU", "CNF");
-        aeroportos.cadastrarVoo("215", "SSA", "CNF");
+        aeroportos.cadastreVoo("107", "BSB", "SSA");
+        aeroportos.cadastreVoo("214", "CNF", "SSA");
+        aeroportos.cadastreVoo("555", "CNF", "GIG");
+        aeroportos.cadastreVoo("101", "CNF", "GRU");
+        aeroportos.cadastreVoo("554", "GIG", "CNF");
+        aeroportos.cadastreVoo("090", "GIG", "GRU");
+        aeroportos.cadastreVoo("050", "GRU", "BSB");
+        aeroportos.cadastreVoo("089", "GRU", "GIG");
+        aeroportos.cadastreVoo("102", "GRU", "CNF");
+        aeroportos.cadastreVoo("215", "SSA", "CNF");
       
         int opcao = -1;
         do {
@@ -55,7 +55,7 @@ public class AeroportoApp {
 
                     try {
                         Aeroporto novoAeroporto = new Aeroporto(nomeAeroporto, codigoAeroporto);
-                        aeroportos.adicionarAeroporto(novoAeroporto);
+                        aeroportos.adicioneAeroporto(novoAeroporto);
                         System.out.println("Aeroporto cadastrado com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
@@ -70,7 +70,7 @@ public class AeroportoApp {
                     String numeroVoo = Teclado.getUmString().toUpperCase();
 
                     try {
-                        aeroportos.cadastrarVoo(numeroVoo, codigoOrigem, codigoDestino);
+                        aeroportos.cadastreVoo(numeroVoo, codigoOrigem, codigoDestino);
                         System.out.println("\nVoo cadastrado com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("\nErro ao cadastrar voo: " + ex.getMessage());
@@ -81,7 +81,7 @@ public class AeroportoApp {
                     String vooRemover = Teclado.getUmString().toUpperCase();
 
                     try {
-                        aeroportos.removerVoo(vooRemover);
+                        aeroportos.removaVoo(vooRemover);
                         System.out.println("\nVoo removido com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("\nErro ao remover voo: " + ex.getMessage());
@@ -92,7 +92,7 @@ public class AeroportoApp {
                     String codigoAeroportoListar = Teclado.getUmString().toUpperCase();
 
                     try {
-                        aeroportos.listarVoos(codigoAeroportoListar);
+                        aeroportos.listeVoos(codigoAeroportoListar);
                     } catch (Exception ex) {
                         System.err.println(ex.getMessage());
                     }
