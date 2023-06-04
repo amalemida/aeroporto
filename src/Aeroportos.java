@@ -6,7 +6,7 @@ class Aeroportos {
         this.aeroportos = new Aeroporto[numeroAeroportos];
     }
 
-    void adicionarAeroporto(Aeroporto aeroporto) throws Exception {
+   public void adicionarAeroporto(Aeroporto aeroporto) throws Exception {
         if (numeroAeroportos >= aeroportos.length) {
             throw new Exception("Número maáximo de voos atingido!");
         }
@@ -15,7 +15,7 @@ class Aeroportos {
         numeroAeroportos++;
     }
 
-    void cadastrarVoo(String numeroVoo, String codigoOrigem, String codigoDestino) throws Exception {
+   public void cadastrarVoo(String numeroVoo, String codigoOrigem, String codigoDestino) throws Exception {
         Aeroporto origem = null;
         for (int i = 0; i < numeroAeroportos; i++) {
             if (aeroportos[i].getCodigo().equals(codigoOrigem)) {
@@ -40,7 +40,7 @@ class Aeroportos {
         origem.adicionarVoo(voo);
     }
 
-    void removerVoo(String numeroVoo) throws Exception {
+    public void removerVoo(String numeroVoo) throws Exception {
         Voo voo = new Voo(numeroVoo);
 
         for (int i = 0; i <= this.numeroAeroportos; i++) {
@@ -53,7 +53,7 @@ class Aeroportos {
         }
     }
 
-    void listarVoos(String codigoAeroporto) throws Exception {
+    public void listarVoos(String codigoAeroporto) throws Exception {
         for (int i = 0; i < this.numeroAeroportos; i++) {
             Aeroporto aeroporto = this.aeroportos[i];
             if (aeroporto.getCodigo().equals(codigoAeroporto)) {

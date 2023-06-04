@@ -26,9 +26,7 @@ public class AeroportoApp {
         aeroportos.cadastrarVoo("089", "GRU", "GIG");
         aeroportos.cadastrarVoo("102", "GRU", "CNF");
         aeroportos.cadastrarVoo("215", "SSA", "CNF");
-
-        System.out.println(aeroportos);
-        
+      
         int opcao = -1;
         do {
             try {
