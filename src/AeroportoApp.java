@@ -10,8 +10,8 @@ public class AeroportoApp {
 
         Aeroportos aeroportos = new Aeroportos(10);
 
-        aeroportos.adicioneAeroporto(cnf);
         aeroportos.adicioneAeroporto(bsb);
+        aeroportos.adicioneAeroporto(cnf);
         aeroportos.adicioneAeroporto(gig);
         aeroportos.adicioneAeroporto(ssa);
         aeroportos.adicioneAeroporto(gru);
@@ -26,6 +26,8 @@ public class AeroportoApp {
         aeroportos.cadastreVoo("089", "GRU", "GIG");
         aeroportos.cadastreVoo("102", "GRU", "CNF");
         aeroportos.cadastreVoo("215", "SSA", "CNF");
+
+        System.out.println(aeroportos);
       
         int opcao = -1;
         do {
