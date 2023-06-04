@@ -57,11 +57,7 @@ public class Voo {
                 return false;
         } else if (!numeroVoo.equals(other.numeroVoo))
             return false;
-        if (destino == null) {
-            if (other.destino != null)
-                return false;
-        } else if (!destino.equals(other.destino))
-            return false;
+
         return true;
     }
 

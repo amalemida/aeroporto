@@ -4,6 +4,9 @@ class Aeroporto {
     private String codigo;
     private ListaSimplesOrdenada<Voo> voos;
 
+    public Aeroporto() {
+    }
+
     public Aeroporto(String nome, String codigo) {
         this.nome = nome;
         this.codigo = codigo;
@@ -24,6 +27,11 @@ class Aeroporto {
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public Aeroporto cadastreAeroporto(String nome, String codigo) throws Exception {
+        Aeroporto aeroporto = new Aeroporto(nome, codigo);
+        return aeroporto;
     }
 
     public void adicioneVoo(Voo voo) throws Exception {

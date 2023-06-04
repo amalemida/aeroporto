@@ -40,15 +40,20 @@ class Aeroportos {
         origem.adicioneVoo(voo);
     }
 
-    public void removaVoo(String numeroVoo) throws Exception {
+       public void removaVoo(String numeroVoo) throws Exception {
+        Boolean achou = false;
         Voo voo = new Voo(numeroVoo);
 
-        for (int i = 0; i <= this.numeroAeroportos; i++) {
+        for (int i = 0; i < this.numeroAeroportos; i++) {
             Aeroporto aeroporto = this.aeroportos[i];
             if (aeroporto.getVoos().tem(voo)) {
                 aeroporto.getVoos().removaItemIndicado(voo);
-            } else
-                throw new Exception("Voo não encontrado!");
+                achou = true;
+                break;
+            }
+        }
+        if (!achou) {
+            throw new Exception("Voo não encontrado!");
         }
     }
 

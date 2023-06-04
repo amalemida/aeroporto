@@ -27,8 +27,6 @@ public class AeroportoApp {
         aeroportos.cadastreVoo("102", "GRU", "CNF");
         aeroportos.cadastreVoo("215", "SSA", "CNF");
 
-        System.out.println(aeroportos);
-      
         int opcao = -1;
         do {
             try {
@@ -56,8 +54,10 @@ public class AeroportoApp {
                     String codigoAeroporto = Teclado.getUmString().toUpperCase();
 
                     try {
-                        Aeroporto novoAeroporto = new Aeroporto(nomeAeroporto, codigoAeroporto);
+                        Aeroporto novoAeroporto = new Aeroporto();
+                        novoAeroporto = novoAeroporto.cadastreAeroporto(nomeAeroporto, codigoAeroporto);
                         aeroportos.adicioneAeroporto(novoAeroporto);
+                        
                         System.out.println("Aeroporto cadastrado com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
