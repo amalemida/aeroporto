@@ -16,16 +16,52 @@ public class AeroportoApp {
         aeroportos.adicioneAeroporto(ssa);
         aeroportos.adicioneAeroporto(gru);
 
-        aeroportos.cadastreVoo("107", "BSB", "SSA");
-        aeroportos.cadastreVoo("214", "CNF", "SSA");
-        aeroportos.cadastreVoo("555", "CNF", "GIG");
-        aeroportos.cadastreVoo("101", "CNF", "GRU");
-        aeroportos.cadastreVoo("554", "GIG", "CNF");
-        aeroportos.cadastreVoo("090", "GIG", "GRU");
-        aeroportos.cadastreVoo("050", "GRU", "BSB");
-        aeroportos.cadastreVoo("089", "GRU", "GIG");
-        aeroportos.cadastreVoo("102", "GRU", "CNF");
-        aeroportos.cadastreVoo("215", "SSA", "CNF");
+        Voo voo107 = new Voo("107", "BSB", "SSA");
+        Voo voo214 = new Voo("214", "CNF", "SSA");
+        Voo voo555 = new Voo("555", "CNF", "GIG");
+        Voo voo101 = new Voo("101", "CNF", "GRU");
+        Voo voo554 = new Voo("554", "GIG", "CNF");
+        Voo voo090 = new Voo("090", "GIG", "GRU");
+        Voo voo050 = new Voo("050", "GRU", "BSB");
+        Voo voo089 = new Voo("089", "GRU", "GIG");
+        Voo voo102 = new Voo("102", "GRU", "CNF");
+        Voo voo215 = new Voo("215", "SSA", "CNF");
+        
+        Voos voos = new Voos();
+
+        voos.adicioneVoo(voo107);
+        voos.adicioneVoo(voo214);
+        voos.adicioneVoo(voo555);
+        voos.adicioneVoo(voo101);
+        voos.adicioneVoo(voo554);
+        voos.adicioneVoo(voo090);
+        voos.adicioneVoo(voo050);
+        voos.adicioneVoo(voo089);
+        voos.adicioneVoo(voo102);
+        voos.adicioneVoo(voo215);
+
+        System.out.println(voos);
+        // cnf.adicioneVoo(voo555);
+        // cnf.adicioneVoo(voo214);
+        // cnf.adicioneVoo(voo101);
+        // bsb.adicioneVoo(voo107);
+        // gig.adicioneVoo(voo554);
+        // gig.adicioneVoo(voo090);
+        // gru.adicioneVoo(voo050);
+        // gru.adicioneVoo(voo089);
+        // gru.adicioneVoo(voo102);
+        // ssa.adicioneVoo(voo215);
+
+        // aeroportos.cadastreVoo("107", "BSB", "SSA");
+        // aeroportos.cadastreVoo("214", "CNF", "SSA");
+        // aeroportos.cadastreVoo("555", "CNF", "GIG");
+        // aeroportos.cadastreVoo("101", "CNF", "GRU");
+        // aeroportos.cadastreVoo("554", "GIG", "CNF");
+        // aeroportos.cadastreVoo("090", "GIG", "GRU");
+        // aeroportos.cadastreVoo("050", "GRU", "BSB");
+        // aeroportos.cadastreVoo("089", "GRU", "GIG");
+        // aeroportos.cadastreVoo("102", "GRU", "CNF");
+        // aeroportos.cadastreVoo("215", "SSA", "CNF");
 
         int opcao = -1;
         do {
@@ -72,7 +108,10 @@ public class AeroportoApp {
                     String numeroVoo = Teclado.getUmString().toUpperCase();
 
                     try {
-                        aeroportos.cadastreVoo(numeroVoo, codigoOrigem, codigoDestino);
+                        Voo novoVoo = new Voo();
+                        Aeroporto adiconaVoo = new Aeroporto();
+                        novoVoo.cadastreVoo(numeroVoo, codigoOrigem, codigoDestino);
+                        voos.adicioneVoo(novoVoo);
                         System.out.println("\nVoo cadastrado com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("\nErro ao cadastrar voo: " + ex.getMessage());
@@ -80,10 +119,11 @@ public class AeroportoApp {
                     break;
                 case 3:
                     System.out.println("\nDigite o número do voo a ser removido:");
-                    String vooRemover = Teclado.getUmString().toUpperCase();
+                    String vooARemover = Teclado.getUmString().toUpperCase();
 
                     try {
-                        aeroportos.removaVoo(vooRemover);
+                     //   Aeroporto removeVoo = new Aeroporto();
+                        voos.removaVoo(vooARemover);
                         System.out.println("\nVoo removido com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("\nErro ao remover voo: " + ex.getMessage());

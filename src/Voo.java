@@ -1,16 +1,20 @@
 
 public class Voo {
     private String numeroVoo;
-    private Aeroporto destino;
+    private String destino;
+    private String origem;
 
-    public Voo(String numeroVoo, Aeroporto destino) {
+    public Voo() {
+    }
+
+    public Voo(String numeroVoo, String destino, String origem) {
         this.numeroVoo = numeroVoo;
         this.destino = destino;
+        this.origem = origem;
     }
 
     public Voo(String numeroVoo) {
         this.numeroVoo = numeroVoo;
-
     }
 
     public String getnumeroVoo() {
@@ -21,17 +25,33 @@ public class Voo {
         this.numeroVoo = numeroVoo;
     }
 
-    public Aeroporto getDestino() {
+    public String getDestino() {
         return destino;
     }
 
-    public void setDestino(Aeroporto destino) {
+    public void setDestino(String destino) {
         this.destino = destino;
     }
 
+    public String getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(String origem) {
+        this.origem = origem;
+    }
+
+    public Voo cadastreVoo(String numeroVoo, String codigoOrigem, String codigoDestino) throws Exception {
+        Voo voo = new Voo(numeroVoo, codigoDestino, codigoOrigem);
+
+        return voo;
+    }
+    
     @Override
     public String toString() {
-        return "{ Número: " + this.numeroVoo + ", Cidade destino: " + this.destino.getNome() + " }";
+        String ret ="";
+            ret += "\n{ Número: " + this.numeroVoo + ", Cidade origem: " + this.origem + ", Cidade destino: " + this.destino + " }\n";
+        return ret;
     }
 
     @Override
