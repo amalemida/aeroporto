@@ -3,9 +3,17 @@ public class Voos {
 
     public Voos() {
         listaVoos = new ListaSimplesOrdenada<Voo>();
-
+        
+    }
+    
+    public ListaSimplesOrdenada<Voo> getListaVoos() {
+        return listaVoos;
     }
 
+    public void setListaVoos(ListaSimplesOrdenada<Voo> listaVoos) {
+        this.listaVoos = listaVoos;
+    }
+    
     public void adicioneVoo(Voo voo) throws Exception {
         listaVoos.guardeUmItemNoInicio(voo);
     }
@@ -15,24 +23,22 @@ public class Voos {
         listaVoos.removaItemIndicado(voo);
     }
 
-    public void listeVoos(String codigoAeroporto) throws Exception {
-        Boolean achou = false;
-        Voo voo = new Voo(codigoAeroporto);
-        for (int i = 0; i < listaVoos.getQuantidade(); i++) {
-            Aeroporto aeroporto = listaVoos.tem();
-            if (aeroporto.getCodigo().equals(codigoAeroporto)) {
-                System.out.println(aeroporto);
-                achou = true;
-                break;
+    public void listeVoos(Voo voo) throws Exception {
+        for (int i = 0; i < this.listaVoos.getQuantidade(); i++) {
+        
+            if( this.listaVoos.tem(voo) ) {
+                System.out.println(this.listaVoos);
+            
             }
         }
-        if (!achou) {
-            throw new Exception("Aeroporto não encontrado!");
-        }
-
+    }
+    
     @Override
     public String toString() {
         return "Voos " + listaVoos;
     }
+
+
+
 
 }

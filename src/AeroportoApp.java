@@ -41,28 +41,7 @@ public class AeroportoApp {
         voos.adicioneVoo(voo215);
 
         System.out.println(voos);
-        // cnf.adicioneVoo(voo555);
-        // cnf.adicioneVoo(voo214);
-        // cnf.adicioneVoo(voo101);
-        // bsb.adicioneVoo(voo107);
-        // gig.adicioneVoo(voo554);
-        // gig.adicioneVoo(voo090);
-        // gru.adicioneVoo(voo050);
-        // gru.adicioneVoo(voo089);
-        // gru.adicioneVoo(voo102);
-        // ssa.adicioneVoo(voo215);
-
-        // aeroportos.cadastreVoo("107", "BSB", "SSA");
-        // aeroportos.cadastreVoo("214", "CNF", "SSA");
-        // aeroportos.cadastreVoo("555", "CNF", "GIG");
-        // aeroportos.cadastreVoo("101", "CNF", "GRU");
-        // aeroportos.cadastreVoo("554", "GIG", "CNF");
-        // aeroportos.cadastreVoo("090", "GIG", "GRU");
-        // aeroportos.cadastreVoo("050", "GRU", "BSB");
-        // aeroportos.cadastreVoo("089", "GRU", "GIG");
-        // aeroportos.cadastreVoo("102", "GRU", "CNF");
-        // aeroportos.cadastreVoo("215", "SSA", "CNF");
-
+       
         int opcao = -1;
         do {
             try {
@@ -109,7 +88,7 @@ public class AeroportoApp {
 
                     try {
                         Voo novoVoo = new Voo();
-                        Aeroporto adiconaVoo = new Aeroporto();
+                        Aeroporto adicionaVoo = new Aeroporto();
                         novoVoo.cadastreVoo(numeroVoo, codigoOrigem, codigoDestino);
                         voos.adicioneVoo(novoVoo);
                         System.out.println("\nVoo cadastrado com sucesso!");
