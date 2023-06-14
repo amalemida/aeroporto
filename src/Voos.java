@@ -1,44 +1,39 @@
 public class Voos {
-    ListaSimplesOrdenada<Voo> listaVoos;
+    private ListaSimplesOrdenada<Voo> listaDeVoos;
 
     public Voos() {
-        listaVoos = new ListaSimplesOrdenada<Voo>();
-        
-    }
-    
-    public ListaSimplesOrdenada<Voo> getListaVoos() {
-        return listaVoos;
+        listaDeVoos = new ListaSimplesOrdenada<Voo>();
     }
 
-    public void setListaVoos(ListaSimplesOrdenada<Voo> listaVoos) {
-        this.listaVoos = listaVoos;
+    public ListaSimplesOrdenada<Voo> getlistaDeVoos() {
+        return listaDeVoos;
     }
-    
-    public void adicioneVoo(Voo voo) throws Exception {
-        listaVoos.guardeUmItemNoInicio(voo);
+
+    public void setlistaDeVoos(ListaSimplesOrdenada<Voo> listaDeVoos) {
+        this.listaDeVoos = listaDeVoos;
     }
 
     public void removaVoo(String numeroVoo) throws Exception {
         Voo voo = new Voo(numeroVoo);
-        listaVoos.removaItemIndicado(voo);
-    }
-
-    public void listeVoos(Voo voo) throws Exception {
-        for (int i = 0; i < this.listaVoos.getQuantidade(); i++) {
-        
-            if( this.listaVoos.tem(voo) ) {
-                System.out.println(this.listaVoos);
-            
+        for( int i = 0; i < listaDeVoos.getQuantidade(); i++) {
+            if(listaDeVoos.getIezimo(i).getNumeroVoo().equals(numeroVoo)) {
+                listaDeVoos.removaItemIndicado(voo);
             }
         }
     }
-    
+
+    public void adicioneVooNaListaDeVoos(Voo voo) throws Exception {
+        for( int i = 0; i < listaDeVoos.getQuantidade(); i++) {
+            if(listaDeVoos.getIezimo(i).getNumeroVoo().equals(voo.getNumeroVoo())) {
+                throw new Exception("Voo já existe");
+            }
+        }
+        listaDeVoos.guardeUmItemNoInicio(voo);
+    }
+     
     @Override
     public String toString() {
-        return "Voos " + listaVoos;
+        return "Voos " + listaDeVoos;
     }
-
-
-
 
 }

@@ -252,6 +252,32 @@ public class ListaSimplesOrdenada <X>
             throw new Exception ("Informacao inexistente");
 	}
 
+   public X getIezimo(int i) throws Exception {
+    if (i < 0)
+        throw new Exception("Posicao invalida");
+
+    No atual = this.primeiro;
+    int posicao = 0;
+
+    while (true) {
+        if (atual == null) {
+            throw new Exception("Posicao invalida");
+        }
+
+        if (posicao == i) {
+            if (atual.getInfo() instanceof Cloneable) {
+                return meuCloneDeX(atual.getInfo());
+            } else {
+                return atual.getInfo();
+            }
+        }
+
+        posicao++;
+        atual = atual.getProx();
+    }
+}
+
+
     public boolean isVazia ()
     {
         return this.primeiro==null/*&&this.ultimo==null*/;

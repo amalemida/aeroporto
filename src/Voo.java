@@ -3,7 +3,7 @@ public class Voo {
     private String numeroVoo;
     private String destino;
     private String origem;
-    
+       
     public Voo() {
     }
 
@@ -13,15 +13,15 @@ public class Voo {
         this.origem = origem;
     }
 
-    public Voo(String numeroVoo) {
-        this.numeroVoo = numeroVoo;
+    public Voo(String origem) {
+        this.origem = origem;
     }
 
-    public String getnumeroVoo() {
+    public String getNumeroVoo() {
         return numeroVoo;
     }
 
-    public void setnumeroVoo(String numeroVoo) {
+    public void setNumeroVoo(String numeroVoo) {
         this.numeroVoo = numeroVoo;
     }
 
@@ -50,7 +50,7 @@ public class Voo {
     @Override
     public String toString() {
         String ret ="";
-            ret += "\n{ Número: " + this.numeroVoo + ", Cidade origem: " + this.origem + ", Cidade destino: " + this.destino + " }\n";
+            ret += "\n{ Número: " + this.numeroVoo + ", Origem: " + this.origem + ", Destino: " + this.destino + " }\n";
         return ret;
     }
 
@@ -63,22 +63,22 @@ public class Voo {
         return result;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Voo other = (Voo) obj;
-        if (numeroVoo == null) {
-            if (other.numeroVoo != null)
-                return false;
-        } else if (!numeroVoo.equals(other.numeroVoo))
-            return false;
+    // @Override
+    // public boolean equals(Object obj) {
+    //     if (this == obj)
+    //         return true;
+    //     if (obj == null)
+    //         return false;
+    //     if (getClass() != obj.getClass())
+    //         return false;
+    //     Voo other = (Voo) obj;
+    //     if (numeroVoo == null) {
+    //         if (other.numeroVoo != null)
+    //             return false;
+    //     } else if (!numeroVoo.equals(other.numeroVoo))
+    //         return false;
 
-        return true;
-    }
+    //     return true;
+    // }
 
 }
