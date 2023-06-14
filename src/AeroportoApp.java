@@ -11,13 +11,13 @@ public class AeroportoApp {
         
         ListaSimplesOrdenada<Aeroporto> listaAeroportos = new ListaSimplesOrdenada<Aeroporto>();
         
-        Aeroportos aeroportos = new Aeroportos(listaAeroportos);
+        Aeroportos aeroportos = new Aeroportos();
         
-        aeroportos.adicioneAeroporto(bsb);
-        aeroportos.adicioneAeroporto(cnf);
-        aeroportos.adicioneAeroporto(gig);
-        aeroportos.adicioneAeroporto(ssa);
-        aeroportos.adicioneAeroporto(gru);
+        aeroportos.adicionarAeroporto(bsb);
+        aeroportos.adicionarAeroporto(cnf);
+        aeroportos.adicionarAeroporto(gig);
+        aeroportos.adicionarAeroporto(ssa);
+        aeroportos.adicionarAeroporto(gru);
 
         
         Voo voo107 = new Voo("107", "BSB", "SSA");
@@ -34,29 +34,18 @@ public class AeroportoApp {
       
         Voos voos = new Voos();
 
-        voos.adicioneVooNaListaDeVoos(voo107);
-        voos.adicioneVooNaListaDeVoos(voo214);
-        voos.adicioneVooNaListaDeVoos(voo555);
-        voos.adicioneVooNaListaDeVoos(voo101);
-        voos.adicioneVooNaListaDeVoos(voo554);
-        voos.adicioneVooNaListaDeVoos(voo090);
-        voos.adicioneVooNaListaDeVoos(voo050);
-        voos.adicioneVooNaListaDeVoos(voo089);
-        voos.adicioneVooNaListaDeVoos(voo102);
-        voos.adicioneVooNaListaDeVoos(voo215);
+        voos.adicionarVoo(voo107);
+        voos.adicionarVoo(voo214);
+        voos.adicionarVoo(voo555);
+        voos.adicionarVoo(voo101);
+        voos.adicionarVoo(voo554);
+        voos.adicionarVoo(voo090);
+        voos.adicionarVoo(voo050);
+        voos.adicionarVoo(voo089);
+        voos.adicionarVoo(voo102);
+        voos.adicionarVoo(voo215);
 
-        cnf.adicioneVooNesseAeroporto(voo555);
-        cnf.adicioneVooNesseAeroporto(voo101);
-        cnf.adicioneVooNesseAeroporto(voo214);
-        bsb.adicioneVooNesseAeroporto(voo107);
-        gig.adicioneVooNesseAeroporto(voo554);
-        gig.adicioneVooNesseAeroporto(voo090);
-        gru.adicioneVooNesseAeroporto(voo089);
-        gru.adicioneVooNesseAeroporto(voo050);        
-        gru.adicioneVooNesseAeroporto(voo102);
-        ssa.adicioneVooNesseAeroporto(voo215);
-
-     //   System.out.println(voos);
+       
      System.out.println(aeroportos);
        
         int opcao = -1;
@@ -86,10 +75,8 @@ public class AeroportoApp {
                     String codigoAeroporto = Teclado.getUmString().toUpperCase();
 
                     try {
-                        Aeroporto novoAeroporto = new Aeroporto();
-                        novoAeroporto = novoAeroporto.cadastreAeroporto(nomeAeroporto, codigoAeroporto);
-                        aeroportos.adicioneAeroporto(novoAeroporto);
-                        
+                        Aeroporto novoAeroporto = new Aeroporto(nomeAeroporto, codigoAeroporto);
+                        aeroportos.adicionarAeroporto(novoAeroporto);
                         System.out.println("Aeroporto cadastrado com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("Erro ao cadastrar novo aeroporto: " + ex.getMessage());
@@ -104,11 +91,8 @@ public class AeroportoApp {
                     String numeroVoo = Teclado.getUmString().toUpperCase();
 
                     try {
-                        Voo novoVoo = new Voo();
-                        Aeroporto adicionaVoo = new Aeroporto();
-                        novoVoo.cadastreVoo(numeroVoo, codigoOrigem, codigoDestino);
-                        voos.adicioneVooNaListaDeVoos(novoVoo);
-                        adicionaVoo.adicioneVooNesseAeroporto(novoVoo);
+                        Voo novoVoo = new Voo(numeroVoo, codigoOrigem, codigoDestino);
+                        voos.adicionarVoo(novoVoo);
                         System.out.println("\nVoo cadastrado com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("\nErro ao cadastrar voo: " + ex.getMessage());
@@ -120,7 +104,7 @@ public class AeroportoApp {
 
                     try {
                      //   Aeroporto removeVoo = new Aeroporto();
-                        voos.removaVoo(vooARemover);
+                        voos.removerVoo(vooARemover);
                         System.out.println("\nVoo removido com sucesso!");
                     } catch (Exception ex) {
                         System.err.println("\nErro ao remover voo: " + ex.getMessage());
@@ -132,7 +116,7 @@ public class AeroportoApp {
 
                     try {
                         Aeroporto aeroporto = new Aeroporto();
-                        aeroporto.listeVoos(codigoAeroportoListar);
+                        aeroporto.listarVoos(codigoAeroportoListar);
                     } catch (Exception ex) {
                         System.err.println(ex.getMessage());
                     }

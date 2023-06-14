@@ -1,35 +1,26 @@
 public class Aeroportos {
-    private ListaSimplesOrdenada<Aeroporto> listaDeAeroportos; 
+    private ListaSimplesOrdenada<Aeroporto> listaDeAeroportos;
 
-    public Aeroportos() {}
-    
-    public Aeroportos(ListaSimplesOrdenada<Aeroporto> listaDeAeroportos) {
-        this.listaDeAeroportos = listaDeAeroportos;
+    public Aeroportos() {
+        this.listaDeAeroportos = new ListaSimplesOrdenada<>();
     }
 
-    public ListaSimplesOrdenada<Aeroporto> getlistaDeAeroportos() {
+    public void adicionarAeroporto(Aeroporto aeroporto) throws Exception {
+        listaDeAeroportos.guardeUmItemNoFinal(aeroporto);
+    }
+
+    public void removerAeroporto(Aeroporto aeroporto) throws Exception {
+        listaDeAeroportos.removaItemIndicado(aeroporto);
+    }
+
+    public ListaSimplesOrdenada<Aeroporto> getListaDeAeroportos() {
         return listaDeAeroportos;
-    }
-
-    public void setlistaDeAeroportos(ListaSimplesOrdenada<Aeroporto> listaDeAeroportos) {
-        this.listaDeAeroportos = listaDeAeroportos;
-    } 
-
-    public void adicioneAeroporto(Aeroporto aeroporto) throws Exception {
-        if (aeroporto == null)
-            throw new Exception("Informacao ausente");
-        this.listaDeAeroportos.guardeUmItemNoInicio(aeroporto);
-    }
-
-    public void removeAeroporto(Aeroporto  aeroporto) throws Exception {
-        if (aeroporto == null)
-            throw new Exception("Informacao ausente");
-        this.listaDeAeroportos.removaItemIndicado(aeroporto);;
     }
 
     @Override
     public String toString() {
-        return "listaDeAeroportos [" + listaDeAeroportos + "]";
+        return "Aeroportos [" + listaDeAeroportos + "]";
     }
 
+    
 }
