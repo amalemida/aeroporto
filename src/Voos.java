@@ -10,8 +10,8 @@ public class Voos {
     }
 
     public void removerVoo(String vooARemover) throws Exception {
-        Voo voo = new Voo(vooARemover);
         for (int i = 0; i < listaDeVoos.getQuantidade(); i++) {
+            Voo voo = listaDeVoos.getIezimo(i);
             if (listaDeVoos.getIezimo(i).getNumeroVoo().equals(vooARemover)) {
                 listaDeVoos.removaItemIndicado(voo);
                 return;

@@ -26,7 +26,7 @@ public class Voo {
 
 	@Override
 	public String toString() {
-		return "\nVoo [numeroVoo= " + numeroVoo + ", destino= " + origem + ", origem= " + destino + "]";
+		return "\nVoo [número do Voo = " + numeroVoo + ", origem = " + origem + ", destino = " + destino + "]";
 	}
 
 }
