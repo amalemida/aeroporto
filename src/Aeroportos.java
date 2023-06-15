@@ -2,11 +2,12 @@ public class Aeroportos {
     private ListaSimplesOrdenada<Aeroporto> listaDeAeroportos;
 
     public Aeroportos() {
-        this.listaDeAeroportos = new ListaSimplesOrdenada<>();
+        this.listaDeAeroportos = new ListaSimplesOrdenada<Aeroporto>();
     }
 
     public void adicionarAeroporto(Aeroporto aeroporto) throws Exception {
-        listaDeAeroportos.guardeUmItemNoFinal(aeroporto);
+    	listaDeAeroportos.guardeUmItemNoFinal(aeroporto);
+
     }
 
     public void removerAeroporto(Aeroporto aeroporto) throws Exception {
@@ -19,7 +20,7 @@ public class Aeroportos {
 
     @Override
     public String toString() {
-        return "Aeroportos [" + listaDeAeroportos + "]";
+        return "\nAeroportos [" + listaDeAeroportos + "]";
     }
 
     

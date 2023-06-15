@@ -1,12 +1,12 @@
 public class Voo {
     private String numeroVoo;
-    private String destino;
     private String origem;
+    private String destino;
 
-    public Voo(String numeroVoo, String destino, String origem) {
+    public Voo(String numeroVoo, String origem, String destino) {
         this.numeroVoo = numeroVoo;
-        this.destino = destino;
         this.origem = origem;
+        this.destino = destino;
     }
 
     public Voo(String vooARemover) {
@@ -23,5 +23,10 @@ public class Voo {
     public String getOrigem() {
         return origem;
     }
+
+	@Override
+	public String toString() {
+		return "\nVoo [numeroVoo= " + numeroVoo + ", destino= " + origem + ", origem= " + destino + "]";
+	}
 
 }

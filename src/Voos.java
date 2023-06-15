@@ -2,7 +2,7 @@ public class Voos {
     private ListaSimplesOrdenada<Voo> listaDeVoos;
 
     public Voos() {
-        this.listaDeVoos = new ListaSimplesOrdenada<>();
+        this.listaDeVoos = new ListaSimplesOrdenada<Voo>();
     }
 
     public void adicionarVoo(Voo voo) throws Exception {
@@ -22,4 +22,10 @@ public class Voos {
     public ListaSimplesOrdenada<Voo> getListaDeVoos() {
         return listaDeVoos;
     }
+
+    @Override
+    public String toString() {
+        return "Voos [" + listaDeVoos + "]";
+    }
+
 }
